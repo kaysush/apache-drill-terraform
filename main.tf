@@ -10,18 +10,17 @@ data "template_file" "start_zkp" {
 data "template_file" "core_site_xml" {
     template = file("${path.module}/templates/core-site.xml.tpl")
     vars = {
-        gcp_project = "groovy-momentum-269710"
+        gcp_project = "<GCP-PROEJCT-ID>"
     }
 }
-
 data "template_file" "start_drill" {
     template = file("${path.module}/templates/start_drill.sh.tpl")
     vars = {
         zookeeper_hostname = module.zookeeper.zookeeper_hostname
         core_site_content = data.template_file.core_site_xml.rendered
-        bucket_name = "sushil-gcp5"
-        sa_key_subpath = "drill-reader.json"
-        connector_jar_subpath = "gcs-connector-hadoop2-2.1.2-shaded.jar"
+        bucket_name = "<BUCKET-NAME>"
+        sa_key_subpath = "<JSON-KEY-SUBPATH>"
+        connector_jar_subpath = "<CONNECTOR-JAR-SUBPATH>"
     }
 }
 

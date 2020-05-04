@@ -1,5 +1,5 @@
 provider "google" {
     region = "us-central1"
     project = "groovy-momentum-269710"
-    credentials = file("../terraform.json")
+    credentials = file("<PATH-TO-SERVICE-ACCOUNT-JSON-FILE>")
 }
